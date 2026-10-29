@@ -1,0 +1,138 @@
+{
+  "title": "The raise trap",
+  "theme": "paper",
+  "accent": "red",
+  "voice": "chandrika",
+  "captions": true,
+  "music": 0.18,
+  "captionReplace": { "fifty thousand": "₹50,000", "ten thousand": "₹10,000" },
+  "cast": {
+    "kai": { "hair": "tuft", "color": "blue", "acc": ["tie"] },
+    "mia": { "hair": "bob", "color": "red" }
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "say": "Kai got a raise, and somehow he is more broke than before.",
+      "set": "void",
+      "transition": "push",
+      "camera": [{ "at": 0, "zoom": 1.12, "y": 900, "dur": 4, "ease": "sine.inOut" }],
+      "chars": [
+        { "id": "kai", "x": 540, "facing": "front", "pose": "stand", "expr": "happy", "enter": "pop",
+          "do": [
+            { "at": "raise", "act": "pose", "pose": "cheer" },
+            { "at": "raise", "act": "expr", "expr": "excited" },
+            { "at": "broke", "act": "pose", "pose": "shrug" },
+            { "at": "broke", "act": "expr", "expr": "shock" },
+            { "at": "broke", "act": "emote", "icon": "?", "dur": 1.6 }
+          ] }
+      ],
+      "props": [
+        { "id": "cash", "kind": "cash", "x": 540, "y": 560, "show": "raise", "float": 10, "hide": "broke", "out": "fly" },
+        { "kind": "coin", "x": 350, "y": 640, "scale": 0.8, "show": "raise+0.15", "float": 14, "hide": "broke", "out": "fly" },
+        { "kind": "coin", "x": 730, "y": 620, "scale": 0.8, "show": "raise+0.3", "float": 14, "hide": "broke", "out": "fly" }
+      ],
+      "texts": [
+        { "type": "title", "text": "THE *RAISE* TRAP", "x": 540, "y": 420, "show": 0.1 }
+      ]
+    },
+    {
+      "id": "before",
+      "say": "Last year he earned fifty thousand a month, and still saved ten thousand.",
+      "set": "office",
+      "transition": "whip",
+      "chars": [
+        { "id": "kai", "x": 520, "facing": "right", "pose": "sit",
+          "do": [
+            { "at": 0, "act": "gesture", "kind": "typing", "until": "saved" },
+            { "at": "saved", "act": "face", "to": "front" },
+            { "at": "saved", "act": "pose", "pose": "sit", "sF": 150, "eF": 10, "spF": 30 },
+            { "at": "saved", "act": "expr", "expr": "joy" }
+          ] }
+      ],
+      "props": [
+        { "id": "bag", "kind": "moneybag", "x": 830, "y": 1250, "show": "saved", "in": "drop" }
+      ],
+      "texts": [
+        { "type": "counter", "from": 0, "to": 50000, "prefix": "₹", "x": 540, "y": 470, "show": "fifty", "dur": 1.2 },
+        { "type": "sticker", "text": "SAVED ₹10,000", "x": 540, "y": 640, "show": "saved", "color": "yellow" }
+      ]
+    },
+    {
+      "id": "spree",
+      "say": "Then the raise came, and so did a new phone, a bigger flat and a shiny car.",
+      "set": "street",
+      "transition": "zoom",
+      "follow": { "id": "kai", "dx": 120 },
+      "chars": [
+        { "id": "kai", "x": 180, "facing": "right", "pose": "stand", "expr": "happy",
+          "do": [
+            { "at": "came", "act": "walk", "to": 620 },
+            { "at": "phone", "act": "hold", "prop": "phone" },
+            { "at": "phone", "act": "pose", "pose": "phone" },
+            { "at": "car", "act": "pose", "pose": "cheer" },
+            { "at": "car", "act": "expr", "expr": "excited" }
+          ] }
+      ],
+      "props": [
+        { "id": "phone", "kind": "phone", "x": 560, "y": 900, "show": "phone" },
+        { "id": "house", "kind": "house", "x": 980, "y": 1250, "show": "flat", "in": "grow" },
+        { "id": "car", "kind": "car", "x": 1150, "y": 1250, "show": "car", "in": "slide", "z": "back" }
+      ]
+    },
+    {
+      "id": "name",
+      "say": "This is called lifestyle creep, where your spending quietly rises to match your income.",
+      "set": "classroom",
+      "transition": "iris",
+      "chars": [
+        { "id": "kai", "x": 190, "facing": "right", "pose": "point", "expr": "neutral",
+          "do": [ { "at": "spending", "act": "expr", "expr": "worried" } ] }
+      ],
+      "props": [
+        { "id": "g", "kind": "graph", "x": 600, "y": 1100, "scale": 1.3, "values": [2, 2.4, 3.6, 4.2, 6, 8], "show": "spending", "in": "fade", "inDur": 1.6, "z": "back" }
+      ],
+      "texts": [
+        { "type": "sticker", "text": "LIFESTYLE CREEP", "x": 600, "y": 470, "show": "lifestyle", "color": "yellow" },
+        { "type": "label", "text": "spending", "x": 790, "y": 690, "show": "rises", "color": "red" }
+      ]
+    },
+    {
+      "id": "fix",
+      "say": { "text": "So the day your next raise lands, move half of it into savings first.", "by": "mia" },
+      "set": "room",
+      "transition": "dissolve",
+      "chars": [
+        { "id": "mia", "x": 230, "facing": "right", "pose": "explain", "expr": "happy" },
+        { "id": "kai", "x": 560, "facing": "left", "pose": "hold", "expr": "neutral",
+          "do": [
+            { "at": "half", "act": "walk", "to": 760 },
+            { "at": "savings", "act": "drop", "prop": "cash2", "into": "bag2" },
+            { "at": "savings+0.5", "act": "face", "to": "mia" },
+            { "at": "savings+0.5", "act": "expr", "expr": "joy" }
+          ] }
+      ],
+      "props": [
+        { "id": "cash2", "kind": "cash", "heldBy": "kai" },
+        { "id": "bag2", "kind": "moneybag", "x": 900, "y": 1250, "anim": [{ "at": "savings+0.45", "scale": 1.35, "dur": 0.5, "ease": "back.out(2)" }] }
+      ],
+      "texts": [
+        { "type": "bubble", "text": "Save half first!", "by": "mia", "show": "half", "hide": "end+0.3" }
+      ]
+    },
+    {
+      "id": "payoff",
+      "say": "Your lifestyle still grows, just slower than your savings. Follow for more money tricks.",
+      "set": "park",
+      "chars": [
+        { "id": "mia", "x": 360, "facing": "front", "pose": "stand", "expr": "happy",
+          "do": [ { "at": "follow", "act": "gesture", "kind": "wave", "dur": 2 } ] },
+        { "id": "kai", "x": 700, "facing": "front", "pose": "cheer", "expr": "joy",
+          "do": [ { "at": "follow", "act": "lookCamera", "dur": 2.5 }, { "at": "follow", "act": "gesture", "kind": "bounce", "dur": 2 } ] }
+      ],
+      "texts": [
+        { "type": "sticker", "text": "FOLLOW FOR MORE", "x": 540, "y": 520, "show": "follow", "color": "yellow" }
+      ]
+    }
+  ]
+}
