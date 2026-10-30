@@ -1,6 +1,7 @@
 ---
 name: stick-reel
 description: Make smooth stick-figure story reels (Instagram/YouTube Shorts, 1080x1920, 25-60s) with HyperFrames — narrated mini-stories and explainers acted out by a cast of stick figures with real walk cycles, poses, faces, talking mouths, props, camera moves, scene transitions, karaoke captions, Sarvam voiceover and synthesized SFX. The model only writes a story.json; a bundled engine turns it into frame-perfect animation, so it works with any model (Gemini Flash, Claude, GPT). Use whenever the user asks for a stick figure / stickman / stick reel / "animated story" with simple characters, a story explainer acted out by figures, or a new episode/variation of a stick reel, even if they do not say "HyperFrames".
+license: MIT
 ---
 
 # Stick-figure story reels

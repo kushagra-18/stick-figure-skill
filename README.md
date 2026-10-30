@@ -8,8 +8,14 @@ talking mouths, props, camera moves, scene transitions, karaoke captions, voiceo
 It is **model-agnostic**: the model never writes animation code, only a validated JSON story, so cheap models
 (Gemini Flash, Haiku, GPT mini) produce the same smooth motion as big ones.
 
-## Install (one line)
+## Install
 
+### Via `skills` CLI (recommended)
+```bash
+npx skills add kushagra-18/stick-figure-skill
+```
+
+### Via install script (direct symlink)
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kushagra-18/stick-figure-skill/main/install.sh | bash
 ```
